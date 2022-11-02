@@ -482,6 +482,23 @@
     solidity-comments-extractor "^0.0.7"
     string-width "^4.2.3"
 
+"@layerzerolabs/solidity-examples@^0.0.5-beta.0":
+  version "0.0.5-beta.0"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/solidity-examples/-/solidity-examples-0.0.5-beta.0.tgz#f6bf1f1549ab5e8c7ae12e7b84ff7bafcbbf8ddb"
+  integrity sha512-fjixC061W4W2sSnEYc99u294+nOz7mz9u5PCMbqh9luEburasFmafw8U+NFLLLA2HcSpZKdJElDun0Uonqo0lA==
+  dependencies:
+    "@openzeppelin/contracts" "^4.4.1"
+    "@openzeppelin/contracts-upgradeable" "^4.6.0"
+    "@openzeppelin/hardhat-upgrades" "^1.18.3"
+    "@uniswap/v2-core" "^1.0.1"
+    "@uniswap/v2-periphery" "^1.1.0-beta.0"
+    dotenv "^10.0.0"
+    hardhat "^2.8.0"
+    hardhat-contract-sizer "^2.1.1"
+    hardhat-deploy "^0.10.5"
+    hardhat-deploy-ethers "^0.3.0-beta.13"
+    hardhat-gas-reporter "^1.0.6"
+
 "@metamask/eth-sig-util@^4.0.0":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@metamask/eth-sig-util/-/eth-sig-util-4.0.1.tgz#3ad61f6ea9ad73ba5b19db780d40d9aae5157088"

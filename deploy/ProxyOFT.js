@@ -8,12 +8,16 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     console.log(`[${hre.network.name}] Endpoint Address: ${lzEndpointAddress}`)
 
+    const token = await deployments.get("Token")
+    console.log(`Token Address: ${token.address}`)
+
     await deploy("ProxyOFT", {
         from: deployer,
-        args: [lzEndpointAddress, "0x9Acd3dDB7dE9E1d9CE6450274D2ad0f1dCD61625"],
+        args: [token.address, lzEndpointAddress],
         log: true,
         waitConfirmations: 1,
     })
 }
 
 module.exports.tags = ["ProxyOFT"]
+module.exports.dependencies = ["Token"]

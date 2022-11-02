@@ -4,7 +4,7 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
 
     console.log(`Network: ${hre.network.name}`)
 
-    await deploy("MockToken", {
+    await deploy("Token", {
         from: deployer,
         args: ["MockToken", "MockERC20"],
         log: true,
@@ -12,5 +12,4 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
     })
 }
 
-
-module.exports.tags = ["MockToken", "test"]
+module.exports.tags = ["Token"]

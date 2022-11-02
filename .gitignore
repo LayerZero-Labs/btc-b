@@ -111,3 +111,4 @@ artifacts/
 deployments/
 .openzeppelin/
 
+build

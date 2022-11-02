@@ -1,0 +1,19 @@
+[package]
+name = "btcb"
+version = "0.0.1"
+
+[addresses]
+btcb = "0xda2707d623785cebfb022b2d53da419aa32877fddf063bd67275bb0a23fe6aaa"
+
+# Testnet Addresses
+layerzero = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
+layerzero_common = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
+msglib_auth = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
+msglib_v1_1 = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
+msglib_v2 = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
+zro = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
+executor_auth = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
+executor_v2 = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
+
+[dependencies]
+layerzero = { local = "../../layerzero-aptos/layerzero" }
