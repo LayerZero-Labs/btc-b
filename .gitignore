@@ -112,3 +112,4 @@ deployments/
 .openzeppelin/
 
 build
+transactions.csv

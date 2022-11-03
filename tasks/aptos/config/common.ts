@@ -1,4 +1,4 @@
-import { ChainId, ChainStage } from '@layerzerolabs/core-sdk'
+import { ChainId, ChainStage } from '@layerzerolabs/lz-sdk'
 const { getDeploymentAddresses } = require("../../../utils/readStatic")
 
 export type OFTConfig = {
@@ -20,7 +20,7 @@ export const EVM_ADDERSS_SIZE = 20
 
 export const ARBITRUM_MULTIPLIER = 10
 export function applyArbitrumMultiplier(chainId: ChainId, value: number) {
-    return [ChainId.ARBITRUM_GOERLI, ChainId.ARBITRUM_GOERLI_SANDBOX, ChainId.ARBITRUM].includes(chainId)
+    return [ChainId.ARBITRUM_GOERLI, ChainId.ARBITRUM].includes(chainId)
         ? value * ARBITRUM_MULTIPLIER
         : value
 }

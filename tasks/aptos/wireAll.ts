@@ -1,9 +1,8 @@
 import * as aptos from 'aptos'
 import {SDK, utils, modules, constants, types} from '@layerzerolabs/lz-aptos'
-import {ChainStage} from '@layerzerolabs/core-sdk'
+import {ChainStage, CHAIN_ID} from '@layerzerolabs/lz-sdk'
 import {promises as fs} from "fs";
 import {cli} from 'cli-ux'
-const CHAIN_ID = require("../constants/chainIds.json")
 import {OFTConfig} from "./config";
 
 export async function wireAll(
@@ -79,7 +78,7 @@ export async function wireAll(
     })
 
     const columns = ['needChange', 'chainId', 'remoteChainId', 'module', 'function', 'args', 'diff', 'payload']
-    const data = transactionByModule.reduce((acc, {accountName, txns}) => {
+    const data = transactionByModule.reduce((acc: any[], {accountName, txns}) => {
         txns.forEach((transaction) => {
             acc.push([
                 accountName,

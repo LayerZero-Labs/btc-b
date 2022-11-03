@@ -500,10 +500,10 @@
   resolved "https://registry.yarnpkg.com/@layerzerolabs/core-sdk/-/core-sdk-1.0.41-beta.42.tgz#a47a9a6e9b6d3e5febe99f9511ca0848b7c79d20"
   integrity sha512-QviZ5VZ+j0hV0mq+o4/XG9d6RU/V3f79Tusuz8zMiz8ZtI4D9/KwrcdVRAJdAxtYe/rqK3od61FgoiyDIokq1A==
 
-"@layerzerolabs/lz-aptos@1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-aptos/-/lz-aptos-1.0.3.tgz#c0a326b70525a149ad7bf0250076559154faf522"
-  integrity sha512-8dWPUmk6ZJRwgdUjXrvp1jH+o7VZ/TJNnu0hs3Q/rBgy1aIpXV33kng1FmjIci7dsLKxw69Uy/S39pOCfsYetA==
+"@layerzerolabs/lz-aptos@^1.0.4-beta.0":
+  version "1.0.4-beta.0"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-aptos/-/lz-aptos-1.0.4-beta.0.tgz#5a06a39ca925318a468dbe0edc842c1cef318164"
+  integrity sha512-dVPzcdeUShBVAX4MzLvioGZ9OT/Vca7jAwD8o/RXUvhSLhJAJJIYokA1SJ8PhwaLVve3MlARjsZUqXjQLcZHZA==
   dependencies:
     "@layerzerolabs/core-sdk" "^1.0.41-beta.37"
     "@noble/hashes" "^1.1.2"
@@ -527,6 +527,11 @@
     tiny-invariant "^1.2.0"
     ts-node "^10.9.1"
     tweetnacl "^1.0.3"
+
+"@layerzerolabs/lz-sdk@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-sdk/-/lz-sdk-0.0.10.tgz#e55c3c2889f79446829f1232002364ad29b8b2d9"
+  integrity sha512-5me1VGRX+BV1sJkToTsKdndatUPbIl6qIsHJS39ytkRCdWHdU+8xv9fSfEdtunKDijnMWYy9OQnefQOdv6joJQ==
 
 "@layerzerolabs/prettier-plugin-solidity@^1.0.0-beta.19":
   version "1.0.0-beta.19"
@@ -10613,6 +10618,11 @@ yaml@^1.10.2:
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
+
+yaml@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.1.3.tgz#9b3a4c8aff9821b696275c79a8bee8399d945207"
+  integrity sha512-AacA8nRULjKMX2DvWvOAdBZMOfQlypSFkjcOcu9FalllIDJ1kvlREzcdIZmidQUqqeMv7jorHjq2HlLv/+c2lg==
 
 yargs-parser@13.1.2, yargs-parser@^13.1.2:
   version "13.1.2"

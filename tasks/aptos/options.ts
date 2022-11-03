@@ -1,6 +1,6 @@
 import * as commander from 'commander'
 import {types} from '@layerzerolabs/lz-aptos'
-import { ChainStage } from '@layerzerolabs/core-sdk'
+import { ChainStage } from '@layerzerolabs/lz-sdk'
 
 export const OPTION_PROMPT = new commander.Option('-p, --prompt <prompt>', 'prompt for confirmation').default(true)
 
@@ -14,11 +14,11 @@ export const OPTION_STAGE = new commander.Option('-s, --stage <stage>', 'stage f
     .argParser(function getChainStage(stage: string) {
         switch (stage) {
             case 'sandbox':
-                return ChainStage.TESTNET_SANDBOX
+                return [ChainStage.TESTNET_SANDBOX, stage]
             case 'testnet':
-                return ChainStage.TESTNET
+                return [ChainStage.TESTNET, stage]
             case 'mainnet':
-                return ChainStage.MAINNET
+                return [ChainStage.MAINNET, stage]
             default:
                 throw new Error(`Invalid stage: ${stage}`)
         }
@@ -29,7 +29,3 @@ export const OPTION_TO_NETWORKS = new commander.Option('-t, --to-networks <to-ne
     .argParser(function commaSeparatedList(value: string, prev: string[]): string[] {
         return value.split(',')
     })
-
-export const OPTION_KEY_PATH = new commander.Option('-k, --key-path <key-path>', 'keypair base path').default(
-    '~/.config/aptos'
-)

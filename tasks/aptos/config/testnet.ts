@@ -1,10 +1,10 @@
 import {modules} from '@layerzerolabs/lz-aptos'
 import {CHAIN_KEY, ChainId} from '@layerzerolabs/lz-sdk'
-import {applyArbitrumMultiplier, EVM_ADDERSS_SIZE, evmOFTAddresses, OFTConfig} from "./common";
+import {applyArbitrumMultiplier, EVM_ADDERSS_SIZE, evmOFTAddresses, OFTConfig} from "./common"
 
 export const OFT_CONFIG: OFTConfig = {
-    oftType: "",
-    address: "",
+    oftType: "0x8ffe1b36292a1ea7c2ad006be4f380c897b141681ab1d28bbc5dce179774fa99::oft::OFT",
+    address: "0x8ffe1b36292a1ea7c2ad006be4f380c897b141681ab1d28bbc5dce179774fa99",
     enableCustomAdapterParams: true,
     remoteOft: {},
     minDstGas: {

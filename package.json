@@ -14,19 +14,20 @@
     "lint": "yarn prettier && solhint 'contracts/*.sol' && solhint 'contracts/**/*.sol' && solhint 'contracts/**/**/*.sol' && solhint 'contracts/**/**/**/*.sol'"
   },
   "dependencies": {
+    "@layerzerolabs/lz-aptos": "^1.0.4-beta.0",
+    "@layerzerolabs/lz-sdk": "^0.0.10",
     "@layerzerolabs/solidity-examples": "^0.0.5-beta.0",
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
     "@openzeppelin/hardhat-upgrades": "^1.18.3",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
+    "commander": "^9.4.0",
     "dotenv": "^10.0.0",
     "hardhat": "^2.8.0",
     "hardhat-contract-sizer": "^2.1.1",
     "hardhat-deploy": "^0.10.5",
     "hardhat-deploy-ethers": "^0.3.0-beta.13",
-    "hardhat-gas-reporter": "^1.0.6",
-    "commander": "^9.4.0",
-    "@layerzerolabs/lz-aptos": "1.0.3"
+    "hardhat-gas-reporter": "^1.0.6"
   },
   "devDependencies": {
     "@layerzerolabs/prettier-plugin-solidity": "^1.0.0-beta.19",
@@ -40,6 +41,7 @@
     "ethers": "^5.5.2",
     "prettier": "^2.4.1",
     "solhint": "^3.3.6",
-    "solidity-coverage": "^0.7.17"
+    "solidity-coverage": "^0.7.17",
+    "yaml": "^2.1.3"
   }
 }
