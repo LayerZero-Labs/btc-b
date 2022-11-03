@@ -9,10 +9,6 @@ module oft::oft {
     }
 
     fun init_module(account: &signer) {
-        initialize(account);
-    }
-
-    public fun initialize(account: &signer) {
         let lz_cap = oft::init_oft<OFT>(account, b"Bitcoin Avalanche Bridged", b"BTC.b", 8, 8);
 
         move_to(account, Capabilities {
