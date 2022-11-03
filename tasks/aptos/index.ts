@@ -5,6 +5,7 @@ import { CHAIN_STAGE, ChainKey, ChainStage } from '@layerzerolabs/lz-sdk'
 import { CHAIN_ID } from '@layerzerolabs/lz-sdk'
 import * as options from './options'
 import fs from 'fs'
+import path from 'path'
 import YAML from 'yaml'
 import * as aptos from 'aptos'
 
@@ -27,7 +28,8 @@ program
         const lookupIds = toNetworks.map((network) => CHAIN_ID[network.replace('-fork', '')])
         const lzConfig = LzConfig(stage, lookupIds)
 
-        const file = fs.readFileSync("../../aptos/.aptos/config.yaml", 'utf8')
+        const projectRoot = path.join(__dirname, "../..")
+        const file = fs.readFileSync(path.join(projectRoot, "./aptos/.aptos/config.yaml"), 'utf8')
         const config = YAML.parse(file)
 
         const privateKeyString = config.profiles[stageName].private_key

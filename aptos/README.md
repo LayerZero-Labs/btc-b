@@ -13,7 +13,6 @@ aptos move compile --named-addresses oft=testnet
 aptos move publish --named-addresses oft=testnet
 ```
 
-### Wire
+#### Wire
 ```bash
-ts-node index.ts wireAll --stage testnet --env testnet --to-networks goerli
-```
+ts-node tasks/aptos/index.ts wireAll --stage testnet --env testnet --to-networks goerli```
