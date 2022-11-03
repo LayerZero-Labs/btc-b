@@ -1,11 +1,11 @@
-module btcb::btcb {
+module oft::oft {
     use layerzero::endpoint::UaCapability;
-    use layerzero::oft;
+    use layerzero_apps::oft;
 
-    struct ExampleOFT {}
+    struct OFT {}
 
     struct Capabilities has key {
-        lz_cap: UaCapability<ExampleOFT>,
+        lz_cap: UaCapability<OFT>,
     }
 
     fun init_module(account: &signer) {
@@ -13,7 +13,7 @@ module btcb::btcb {
     }
 
     public fun initialize(account: &signer) {
-        let lz_cap = oft::init_oft<ExampleOFT>(account, b"Bitcoin Avalanche Bridged", b"BTC.b", 8, 8);
+        let lz_cap = oft::init_oft<OFT>(account, b"Bitcoin Avalanche Bridged", b"BTC.b", 8, 8);
 
         move_to(account, Capabilities {
             lz_cap,
@@ -21,6 +21,6 @@ module btcb::btcb {
     }
 
     public entry fun lz_receive(src_chain_id: u64, src_address: vector<u8>, payload: vector<u8>) {
-        oft::lz_receive<ExampleOFT>(src_chain_id, src_address, payload)
+        oft::lz_receive<OFT>(src_chain_id, src_address, payload)
     }
 }
