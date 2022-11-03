@@ -259,7 +259,7 @@ async function enableCustomAdapterParamsOft(oftSdk: modules.oft.OFT, endpointId,
 
 function getEndpointId(remoteNetwork: string): [number, number] {
     const lookupId = CHAIN_ID[remoteNetwork]
-    const remoteId = lookupId + 100 //todo: fix when sdk set to +100
+    const remoteId = lookupId
     return [lookupId, remoteId]
 }
 

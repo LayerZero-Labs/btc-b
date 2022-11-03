@@ -1,10 +1,5 @@
 ---
 profiles:
-  mainnet:
-    private_key: ""
-    public_key: ""
-    account: ""
-    rest_url: "https://mainnet.aptoslabs.com/v1"
   testnet:
     private_key: "0xcc37372ee9ee3e86a0934460987db3f2c8f0325070ec9e161b080eac29a8defb"
     public_key: "0x0d67deac6d07ba54618613ff7e4252488acb3359f0354f9ef5206f8e18139119"

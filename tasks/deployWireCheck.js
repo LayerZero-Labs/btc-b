@@ -25,6 +25,19 @@ module.exports = async function (taskArgs) {
         }
     })
 
+    //setUseCustomAdapterParams
+    networks.map(async (network) => {
+        if(network === taskArgs.proxyChain) {
+            const setUseCustomAdapterParamsCommand = `npx hardhat --network ${network} setUseCustomAdapterParams --contract ${taskArgs.proxyContract}`;
+            console.log("setUseCustomAdapterParamsCommand: " + setUseCustomAdapterParamsCommand)
+            shell.exec(setUseCustomAdapterParamsCommand)
+        } else {
+            const setUseCustomAdapterParamsCommand = `npx hardhat --network ${network} setUseCustomAdapterParams --contract ${taskArgs.contract}`;
+            console.log("setUseCustomAdapterParamsCommand: " + setUseCustomAdapterParamsCommand)
+            shell.exec(setUseCustomAdapterParamsCommand)
+        }
+    })
+
     //wire
     console.log({networks})
     networks.map(async (source) => {
@@ -53,6 +66,10 @@ module.exports = async function (taskArgs) {
             let wireUpCommand = `npx hardhat --network ${source} setTrustedRemote --target-network ${destination} --local-contract ${srcContract} --remote-contract ${dstContract}`;
             console.log("wireUpCommand: " + wireUpCommand)
             shell.exec(wireUpCommand)
+
+            let setMinDstGasCommand = `npx hardhat --network ${source} setMinDstGasLookup --target-network ${destination} --contract ${srcContract}`;
+            console.log("setMinDstGasCommand: " + setMinDstGasCommand)
+            shell.exec(setMinDstGasCommand)
         })
     })
 
