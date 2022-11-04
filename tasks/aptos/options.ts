@@ -29,3 +29,11 @@ export const OPTION_TO_NETWORKS = new commander.Option('-t, --to-networks <to-ne
     .argParser(function commaSeparatedList(value: string, prev: string[]): string[] {
         return value.split(',')
     })
+
+export const OPTION_DST_CHAIN_ID = new commander.Option('-d, --dst-chain-id <dst-chain-id>', 'dst chain id').makeOptionMandatory(true)
+
+export const OPTION_QTY_LD = new commander.Option('-q, --qty-ld <qty-ld>', 'qty local decimals').makeOptionMandatory(true)
+
+export const OPTION_EVM_ADDRESS = new commander.Option('-ea, --evm-address <evm-address>', 'evm address to send to').makeOptionMandatory(true)
+
+export const OPTION_ADDRESS_CLAIM = new commander.Option('-a, --address-claim <address-claim>', 'aptos address to claim token').makeOptionMandatory(true)

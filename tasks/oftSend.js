@@ -21,7 +21,7 @@ module.exports = async function (taskArgs, hre) {
     }
 
     if(taskArgs.targetNetwork === "aptos-testnet") {
-        toAddress = "0x13eeca1c5df1ea6388f1ee68a8c26160cdd805daf781c2e0a876428662717f56"
+        toAddress = taskArgs.aptosAddress
     }
 
     // get remote chain id
