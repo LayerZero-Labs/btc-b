@@ -1,5 +1,6 @@
 import * as aptos from 'aptos'
-import {SDK, utils, modules, constants, types} from '@layerzerolabs/lz-aptos'
+import {SDK, utils, constants, types} from '@layerzerolabs/lz-aptos'
+import * as oft from '@layerzerolabs/lz-aptos/dist/modules/apps/oft'
 import {ChainStage, CHAIN_ID} from '@layerzerolabs/lz-sdk'
 import {promises as fs} from "fs";
 import {cli} from 'cli-ux'
@@ -152,7 +153,7 @@ export async function wireAll(
 
 export async function configureOFT(sdk: SDK, endpointId: number, config: OFTConfig): Promise<Transaction[]> {
     const transactions: Transaction[] = []
-    const oftModule = new modules.oft.OFT(sdk)
+    const oftModule = new oft.OFT(sdk)
     transactions.push(...(await enableCustomAdapterParamsOft(oftModule, endpointId, config)))
     return transactions
 }
@@ -165,13 +166,13 @@ export async function configureOFTWithRemote(
     config: OFTConfig
 ): Promise<Transaction[]> {
     const transactions: Transaction[] = []
-    const oftModule = new modules.oft.OFT(sdk)
+    const oftModule = new oft.OFT(sdk)
     transactions.push(...(await setRemoteOft(oftModule, endpointId, lookupId, remoteId, config)))
     transactions.push(...(await setMinDstGasOft(oftModule, endpointId, lookupId, remoteId, config)))
     return transactions
 }
 
-async function setRemoteOft(oftSdk: modules.oft.OFT, endpointId, lookupId, remoteId, config: OFTConfig): Promise<Transaction[]> {
+async function setRemoteOft(oftSdk: oft.OFT, endpointId, lookupId, remoteId, config: OFTConfig): Promise<Transaction[]> {
     const oftType = config.oftType
     const curBuffer = await oftSdk.getRemote(oftType, remoteId)
     const cur = '0x' + Buffer.from(curBuffer).toString('hex')
@@ -204,12 +205,12 @@ async function setRemoteOft(oftSdk: modules.oft.OFT, endpointId, lookupId, remot
     return [tx]
 }
 
-async function setMinDstGasOft(oftSdk: modules.oft.OFT, endpointId, lookupId, remoteId, config): Promise<Transaction[]> {
+async function setMinDstGasOft(oftSdk: oft.OFT, endpointId, lookupId, remoteId, config): Promise<Transaction[]> {
     const oftType = config.oftType
-    const cur = await oftSdk.getMinDstGas(oftType, remoteId, BigInt(modules.oft.PacketType.SEND))
-    const minDstGas = config.minDstGas[modules.oft.PacketType.SEND][lookupId]
+    const cur = await oftSdk.getMinDstGas(oftType, remoteId, BigInt(oft.PacketType.SEND))
+    const minDstGas = config.minDstGas[oft.PacketType.SEND][lookupId]
     const needChange = cur.toString() !== minDstGas.toString()
-    const payload = oftSdk.setMinDstGasPayload(oftType, remoteId, BigInt(modules.oft.PacketType.SEND), minDstGas)
+    const payload = oftSdk.setMinDstGasPayload(oftType, remoteId, BigInt(oft.PacketType.SEND), minDstGas)
     const moduleName = payload.function.split('::')[1]
     const tx: Transaction = {
         needChange,
@@ -231,7 +232,7 @@ async function setMinDstGasOft(oftSdk: modules.oft.OFT, endpointId, lookupId, re
     return [tx]
 }
 
-async function enableCustomAdapterParamsOft(oftSdk: modules.oft.OFT, endpointId, config): Promise<Transaction[]> {
+async function enableCustomAdapterParamsOft(oftSdk: oft.OFT, endpointId, config): Promise<Transaction[]> {
     const oftType = config.oftType
     const enabled = await oftSdk.customAdapterParamsEnabled(oftType)
     const needChange = enabled !== config.enableCustomAdapterParams

@@ -1,5 +1,5 @@
 import * as aptos from 'aptos'
-import {SDK, utils, modules, constants, types} from '@layerzerolabs/lz-aptos'
+import {SDK, utils, constants, types} from '@layerzerolabs/lz-aptos'
 import {ChainStage, CHAIN_ID} from '@layerzerolabs/lz-sdk'
 import {promises as fs} from "fs";
 import {cli} from 'cli-ux'
@@ -56,6 +56,7 @@ export async function sendOft(
             remoteChainId,
             remoteReceiverBytes,
             qtyLd,
+            Math.floor(qtyLd * 0.8),
             fee,
             0,
             adapterParams,
