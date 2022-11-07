@@ -14,7 +14,7 @@ msglib_v2 = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
 zro = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
 executor_auth = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
 executor_v2 = "0x1759cc0d3161f1eb79f65847d4feb9d1f74fb79014698a23b16b28b9cd4c37e3"
-layerzero_apps = "0x18307503f0652087b30bf9896c66e2eb7ed934722626cbe18b5e79e8cb17dae0"
+layerzero_apps = "0xd72280db61cf452e6e8fd7e9e1370e8db57c94addea8310ae0f7bc5607e91107"
 
 [dependencies]
 layerzero = { local = "../../layerzero-aptos/layerzero" }

@@ -14,9 +14,9 @@
     "lint": "yarn prettier && solhint 'contracts/*.sol' && solhint 'contracts/**/*.sol' && solhint 'contracts/**/**/*.sol' && solhint 'contracts/**/**/**/*.sol'"
   },
   "dependencies": {
-    "@layerzerolabs/lz-aptos": "^1.0.4-beta.0",
+    "@layerzerolabs/lz-aptos": "^1.0.4-beta.4",
     "@layerzerolabs/lz-sdk": "^0.0.10",
-    "@layerzerolabs/solidity-examples": "^0.0.5-beta.0",
+    "@layerzerolabs/solidity-examples": "^0.0.5-beta.1",
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
     "@openzeppelin/hardhat-upgrades": "^1.18.3",
     "@uniswap/v2-core": "^1.0.1",

@@ -112,3 +112,5 @@ artifacts/
 
 build
 transactions.csv
+deployments/localhost
+aptos/.aptos/config.yaml

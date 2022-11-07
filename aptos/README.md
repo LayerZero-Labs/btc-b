@@ -1,6 +1,16 @@
 #### Setup
 ```bash
+cd aptos
 aptos init
+
+rename default profile to [stage]
+stage: mainnet,testnet,sandbox
+```
+
+### Config
+```bash
+- aptos/.aptos/config.yaml
+- tasks/aptos/config/[stage].ts
 ```
 
 #### Compile
@@ -15,4 +25,5 @@ aptos move publish --named-addresses oft=testnet
 
 #### Wire
 ```bash
-ts-node tasks/aptos/index.ts wireAll --stage testnet --env testnet --to-networks goerli```
+ts-node tasks/aptos/index.ts wireAll --stage testnet --env testnet --to-networks goerli,fuji
+```
