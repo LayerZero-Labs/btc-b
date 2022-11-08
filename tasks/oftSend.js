@@ -44,13 +44,16 @@ module.exports = async function (taskArgs, hre) {
 
     tx = await (
         await localContractInstance.sendFrom(
-            owner.address,                 // 'from' address to send tokens
-            remoteChainId,                 // remote LayerZero chainId
-            toAddress,                     // 'to' address to send tokens
-            qty,                           // amount of tokens to send (in wei)
-            owner.address,                 // refund address (if too much message fee is sent, it gets refunded)
-            ethers.constants.AddressZero,  // address(0x0) if not paying in ZRO (LayerZero Token)
-            adapterParams,                          // flexible bytes array to indicate messaging adapter services
+            owner.address,                                       // 'from' address to send tokens
+            remoteChainId,                                       // remote LayerZero chainId
+            toAddress,                                           // 'to' address to send tokens
+            qty,                                                 // amount of tokens to send (in wei)
+            Math.floor(qty * 0.8),                            // min amount of tokens to send (in wei)
+            {
+                refundAddress: owner.address,                    // refund address (if too much message fee is sent, it gets refunded)
+                zroPaymentAddress: ethers.constants.AddressZero, // address(0x0) if not paying in ZRO (LayerZero Token)
+                adapterParams: adapterParams                     // flexible bytes array to indicate messaging adapter services
+            },
             { value: fees[0] }
         )
     ).wait()

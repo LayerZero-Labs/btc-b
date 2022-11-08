@@ -1,7 +1,7 @@
 pragma solidity ^0.8.0;
 
-import "@layerzerolabs/solidity-examples/contracts/token/oft/v2/ProxyOFTV2.sol";
+import "@layerzerolabs/solidity-examples/contracts/token/oft/v2/fee/ProxyOFTWithFee.sol";
 
-contract ProxyOFT is ProxyOFTV2 {
-    constructor(address _token, address _lzEndpoint) ProxyOFTV2(_token, 8, _lzEndpoint){}
+contract ProxyOFT is ProxyOFTWithFee {
+    constructor(address _token, address _lzEndpoint) ProxyOFTWithFee(_token, 8, _lzEndpoint){}
 }
