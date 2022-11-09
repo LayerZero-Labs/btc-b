@@ -1,0 +1,20 @@
+{
+  "arbitrum-goerli": {
+    "setDefault": true,
+    "defaultFeeBp": 5,
+    "fujiFeeBp": 0,
+    "goerliFeeBp": 0
+  },
+  "fuji": {
+    "setDefault": true,
+    "defaultFeeBp": 5,
+    "arbitrum-goerliFeeBp": 0,
+    "goerliFeeBp": 0
+  },
+  "goerli": {
+    "setDefault": true,
+    "defaultFeeBp": 5,
+    "fujiFeeBp": 0,
+    "arbitrum-goerliFeeBp": 0
+  }
+}

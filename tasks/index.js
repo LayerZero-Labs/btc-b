@@ -44,6 +44,10 @@ task(
 task("setUseCustomAdapterParams", "setUseCustomAdapterParams", require("./setUseCustomAdapterParams"))
     .addParam("contract", "the contract name")
 
+task("setDefaultFeeBp", "setDefaultFeeBp", require("./setDefaultFeeBp"))
+    .addParam("contract", "the contract name")
+    .addParam("fee", "fee amount")
+
 task("setMinDstGasLookup", "estimateSendMultiFee", require("./setMinDstGasLookup"))
     .addOptionalParam("targetNetwork", "the chainId to transfer to")
     .addOptionalParam("type", "the chainId to transfer to")

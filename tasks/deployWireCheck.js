@@ -1,5 +1,6 @@
 const shell = require('shelljs')
 const environments = require("../constants/environments.json")
+const evmDefaultFeeBp = require("../constants/evmFees.json")
 
 module.exports = async function (taskArgs) {
     const networks = environments[taskArgs.e];
@@ -25,7 +26,7 @@ module.exports = async function (taskArgs) {
         }
     })
 
-    //setUseCustomAdapterParams
+    // setUseCustomAdapterParams & set defaultFeeBp and per chain
     networks.map(async (network) => {
         if(network === taskArgs.proxyChain) {
             const setUseCustomAdapterParamsCommand = `npx hardhat --network ${network} setUseCustomAdapterParams --contract ${taskArgs.proxyContract}`;
@@ -35,6 +36,27 @@ module.exports = async function (taskArgs) {
             const setUseCustomAdapterParamsCommand = `npx hardhat --network ${network} setUseCustomAdapterParams --contract ${taskArgs.contract}`;
             console.log("setUseCustomAdapterParamsCommand: " + setUseCustomAdapterParamsCommand)
             shell.exec(setUseCustomAdapterParamsCommand)
+        }
+    })
+
+    // setDefaultFeeBp and per chain
+    networks.map(async (network) => {
+        if(network === taskArgs.proxyChain) {
+            if(evmDefaultFeeBp[network].setDefault) {
+                const setDefaultFeeBpCommand = `npx hardhat --network ${network} setDefaultFeeBp --contract ${taskArgs.proxyContract} --fee ${evmDefaultFeeBp[network].defaultFeeBp}`;
+                console.log("setDefaultFeeBpCommand: " + setDefaultFeeBpCommand)
+                shell.exec(setDefaultFeeBpCommand)
+            } else {
+                // TODO set per chain
+            }
+        } else {
+            if(evmDefaultFeeBp[network].setDefault) {
+                const setDefaultFeeBpCommand = `npx hardhat --network ${network} setDefaultFeeBp --contract ${taskArgs.contract} --fee ${evmDefaultFeeBp[network].defaultFeeBp}`;
+                console.log("setDefaultFeeBpCommand: " + setDefaultFeeBpCommand)
+                shell.exec(setDefaultFeeBpCommand)
+            } else {
+                // TODO set per chain
+            }
         }
     })
 

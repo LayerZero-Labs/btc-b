@@ -56,6 +56,8 @@ export async function wireAll(
         txns.push(...(await configureOFTWithRemote(sdk, endpointId, lookupId, remoteId, config)))
     }
 
+    await configureDefaultFeeBp(sdk, endpointId, config, accounts)
+
     const transactionByModule = [
         {
             accountName: 'oft',
@@ -170,6 +172,22 @@ export async function configureOFTWithRemote(
     transactions.push(...(await setRemoteOft(oftModule, endpointId, lookupId, remoteId, config)))
     transactions.push(...(await setMinDstGasOft(oftModule, endpointId, lookupId, remoteId, config)))
     return transactions
+}
+
+export async function configureDefaultFeeBp(
+    sdk: SDK,
+    endpointId: number,
+    config: OFTConfig,
+    accounts: { [key: string]: aptos.AptosAccount },
+) {
+    const transactions: Transaction[] = []
+    const oftSdk = new oft.OFT(sdk)
+    const oftType = config.oftType
+
+    console.log("Before Calling setDefaultFee")
+    await oftSdk.setDefaultFee(accounts.oft, oftType, config.defaultFeeBp)
+    console.log("After Calling setDefaultFee")
+
 }
 
 async function setRemoteOft(oftSdk: oft.OFT, endpointId, lookupId, remoteId, config: OFTConfig): Promise<Transaction[]> {

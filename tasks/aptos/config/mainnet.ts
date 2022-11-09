@@ -10,6 +10,7 @@ export const OFT_CONFIG: OFTConfig = {
     minDstGas: {
         [oft.PacketType.SEND]: {},
     },
+    defaultFeeBp: 0
 }
 
 export function getConfig(chainIds: ChainId[]): OFTConfig {

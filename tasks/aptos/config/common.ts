@@ -8,6 +8,7 @@ export type OFTConfig = {
     // todo: default fee?
     remoteOft: any
     minDstGas: any
+    defaultFeeBp: any
 }
 
 export const NETWORK_NAME: { [c in ChainStage]?: string } = {
