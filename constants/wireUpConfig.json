@@ -1,0 +1,350 @@
+{
+  "proxyChain": {
+    "testnet": "fuji",
+    "mainnet": "avalanche"
+  },
+  "proxyContractName": {
+    "testnet": "ProxyOFT",
+    "mainnet": "BTCbProxyOFT"
+  },
+  "contractName": {
+    "testnet": "OFT",
+    "mainnet": "BTCbOFT"
+  },
+  "fuji": {
+    "setDefault": true,
+    "defaultFeeBp": 1,
+    "useCustomAdapterParams": true,
+    "remoteNetworkConfigs": {
+      "goerli":  {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "aptos-testnet":  {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [10000, 10000]
+      }
+    }
+  },
+  "goerli": {
+    "setDefault": false,
+    "defaultFeeBp": 1,
+    "useCustomAdapterParams": true,
+    "remoteNetworkConfigs": {
+      "fuji":  {
+        "feeBpConfig": {
+          "feeBp": 5,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "aptos-testnet":  {
+        "feeBpConfig": {
+          "feeBp": 1,
+          "enabled": true
+        },
+        "minDstGasConfig": [10000, 10000]
+      }
+    }
+  },
+  "ethereum": {
+    "setDefault": true,
+    "defaultFeeBp": 0,
+    "useCustomAdapterParams": true,
+    "remoteNetworkConfigs": {
+      "bsc":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "avalanche":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "polygon":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "aptos":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [10000, 10000]
+      },
+      "arbitrum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [2000000, 3200000]
+      },
+      "optimism":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      }
+    }
+  },
+  "bsc": {
+    "setDefault": true,
+    "defaultFeeBp": 0,
+    "useCustomAdapterParams": true,
+    "remoteNetworkConfigs": {
+      "ethereum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "avalanche":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "polygon":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "aptos":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [10000, 10000]
+      },
+      "arbitrum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [2000000, 3200000]
+      },
+      "optimism":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      }
+    }
+  },
+  "avalanche": {
+    "setDefault": true,
+    "defaultFeeBp": 0,
+    "useCustomAdapterParams": true,
+    "remoteNetworkConfigs": {
+      "ethereum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "bsc":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "polygon":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "aptos":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [10000, 10000]
+      },
+      "arbitrum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [2000000, 3200000]
+      },
+      "optimism":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      }
+    }
+  },
+  "polygon": {
+    "setDefault": true,
+    "defaultFeeBp": 0,
+    "useCustomAdapterParams": true,
+    "remoteNetworkConfigs": {
+      "ethereum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "bsc":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "avalanche":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "aptos":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [10000, 10000]
+      },
+      "arbitrum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [2000000, 3200000]
+      },
+      "optimism":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      }
+    }
+  },
+  "arbitrum": {
+    "setDefault": true,
+    "defaultFeeBp": 0,
+    "useCustomAdapterParams": true,
+    "remoteNetworkConfigs": {
+      "ethereum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "bsc":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "avalanche":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "polygon":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "aptos":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [10000, 10000]
+      },
+      "optimism":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      }
+    }
+  },
+  "optimism": {
+    "setDefault": true,
+    "defaultFeeBp": 0,
+    "useCustomAdapterParams": true,
+    "remoteNetworkConfigs": {
+      "ethereum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "bsc":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "avalanche":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "polygon":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [100000, 160000]
+      },
+      "aptos":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [10000, 10000]
+      },
+      "arbitrum":    {
+        "feeBpConfig": {
+          "feeBp": 0,
+          "enabled": true
+        },
+        "minDstGasConfig": [2000000, 3200000]
+      }
+    }
+  }
+}

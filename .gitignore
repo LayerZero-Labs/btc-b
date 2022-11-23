@@ -108,6 +108,9 @@ package-lock.json
 .idea
 cache/
 artifacts/
-deployments/
 .openzeppelin/
 
+build
+transactions.csv
+deployments/localhost
+aptos/.aptos/config.yaml

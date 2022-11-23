@@ -5,15 +5,9 @@
     "avalanche",
     "polygon",
     "arbitrum",
-    "optimism",
-    "fantom"
+    "optimism"
   ],
   "testnet": [
-    "goerli",
-    "fuji",
-    "arbitrum-goerli"
-  ],
-  "testnet2": [
     "goerli",
     "bsc-testnet",
     "fuji",
