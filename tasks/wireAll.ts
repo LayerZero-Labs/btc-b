@@ -214,16 +214,21 @@ async function setUseCustomAdapterParams(hre: any, localNetwork: string, localCo
     const cur = await localContract.useCustomAdapterParams()
     const needChange = cur !== useCustom
 
+    // function setUseCustomAdapterParams(bool _useCustomAdapterParams)
+    const methodName = "setUseCustomAdapterParams"
+    const params = ['bool']
+    let args = [useCustom]
+
     const tx: any = {
         needChange,
         chainId: crossChainHelper.getEndpointId(localNetwork),
         contractName: localContractName,
-        methodName: "setUseCustomAdapterParams",
-        args: [useCustom],
-        calldata: "",
+        methodName: methodName,
+        args: args,
+        calldata: generateCalldata(hre, methodName, params, args),
     }
     if (tx.needChange) {
-        tx.diff = { useCustomAdapterParams: { oldValue: cur, newValue: useCustom } }
+        tx.diff = JSON.stringify({ useCustomAdapterParams: { oldValue: cur, newValue: useCustom } });
     }
     return [tx]
 }
@@ -233,16 +238,21 @@ async function setDefaultFeeBp(hre: any, localNetwork: string, localContractName
     const cur = await localContract.defaultFeeBp()
     const needChange = cur !== defaultFeeBp
 
+    // function setDefaultFeeBp(uint16 _feeBp)
+    const methodName = "setDefaultFeeBp"
+    const params = ['uint16']
+    let args = [defaultFeeBp]
+
     const tx: any = {
         needChange,
         chainId: crossChainHelper.getEndpointId(localNetwork),
         contractName: localContractName,
-        methodName: "setDefaultFeeBp",
-        args: [defaultFeeBp],
-        calldata: "",
+        methodName: methodName,
+        args: args,
+        calldata: generateCalldata(hre, methodName, params, args),
     }
     if (tx.needChange) {
-        tx.diff = { defaultFeeBp: { oldValue: cur, newValue: defaultFeeBp } }
+        tx.diff = JSON.stringify({ defaultFeeBp: { oldValue: cur, newValue: defaultFeeBp } })
     }
     return [tx]
 }
@@ -254,28 +264,27 @@ async function setFeeBp(hre: any, localNetwork: string, localContractName: strin
     const curEnabled = feeConfig.enabled;
     const needChange = curFeeBp !== feeBpConfig.feeBp || curEnabled !== feeBpConfig.enabled
 
+    // function setFeeBp(uint16 _dstChainId, bool _enabled, uint16 _feeBp)
+    const methodName = "setFeeBp"
+    const params = ['uint16', 'bool', 'uint16']
+    let args = [remoteChainId, feeBpConfig.enabled, feeBpConfig.feeBp]
+
     const tx: any = {
         needChange,
         chainId: crossChainHelper.getEndpointId(localNetwork),
         contractName: localContractName,
-        methodName: "setFeeBp",
-        args: [remoteChainId, feeBpConfig.enabled, feeBpConfig.feeBp],
-        calldata: "",
+        methodName: methodName,
+        args: args,
+        calldata: generateCalldata(hre, methodName, params, args),
     }
     if (tx.needChange) {
-        tx.diff = { feeBp: { oldFeeBpValue: curFeeBp, newFeeBpValue: feeBpConfig.feeBp, oldEnabledFee: curEnabled, newEnabledFee:  feeBpConfig.enabled} }
+        tx.diff = JSON.stringify({ feeBp: { oldFeeBpValue: curFeeBp, newFeeBpValue: feeBpConfig.feeBp, oldEnabledFee: curEnabled, newEnabledFee:  feeBpConfig.enabled} })
     }
     return [tx]
 }
 
 async function setMinDstGas(hre: any, localNetwork: string, localContractName: string, minDstGasConfig: [], remoteChainId: number): Promise<Transaction[]> {
     const txns: Transaction[] = []
-    const methodName = "setMinDstGas"
-    const params = [
-        'uint16',
-        'uint16',
-        'uint256'
-    ]
     for (let i = 0; i < minDstGasConfig.length; i++) {
         const packetType = i;
         const minGas = minDstGasConfig[packetType]
@@ -284,6 +293,12 @@ async function setMinDstGas(hre: any, localNetwork: string, localContractName: s
         const needChange = cur !== minGas
 
         // function setMinDstGas(uint16 _dstChainId, uint16 _packetType, uint _minGas)
+        const methodName = "setMinDstGas"
+        const params = [
+            'uint16',
+            'uint16',
+            'uint256'
+        ]
         let args = [
             remoteChainId,
             packetType,
@@ -294,11 +309,11 @@ async function setMinDstGas(hre: any, localNetwork: string, localContractName: s
             chainId: crossChainHelper.getEndpointId(localNetwork),
             contractName: localContractName,
             methodName,
-            args: [remoteChainId, packetType, minGas],
+            args: args,
             calldata: generateCalldata(hre, methodName, params, args),
         }
         if (tx.needChange) {
-            tx.diff = { oldValue: cur, newValue: minGas }
+            tx.diff = JSON.stringify({ oldValue: cur, newValue: minGas })
         }
         txns.push(tx)
     }
@@ -320,19 +335,24 @@ async function setTrustedRemote(hre: any, localNetwork: string, localContractNam
     }
     const desiredTrustedRemote = ethers.utils.solidityPack(['bytes'], [remoteContractAddress + localContract.address.substring(2)])
     const remoteChainId = crossChainHelper.getEndpointId(remoteNetwork)
-    const cur = await localContract.isTrustedRemote(remoteChainId, desiredTrustedRemote)
-    const needChange = !cur
+    const cur = await localContract.trustedRemoteLookup(remoteChainId)
+    const needChange = cur != desiredTrustedRemote
+
+    // function setTrustedRemote(uint16 _srcChainId, bytes calldata _path)
+    const methodName = "setTrustedRemote"
+    const params = ['uint16', 'bytes']
+    let args = [remoteChainId, desiredTrustedRemote]
 
     const tx: any = {
         needChange,
         chainId: crossChainHelper.getEndpointId(localNetwork),
         contractName: localContractName,
-        methodName: "setTrustedRemote",
-        args: [remoteChainId, desiredTrustedRemote],
-        calldata: "",
+        methodName: methodName,
+        args: args,
+        calldata: generateCalldata(hre, methodName, params, args),
     }
     if (tx.needChange) {
-        tx.diff = {trustedRemote: {oldValue: "0x", newValue: desiredTrustedRemote}}
+        tx.diff = JSON.stringify({trustedRemote: {oldValue: cur, newValue: desiredTrustedRemote}})
     }
     return [tx]
 }

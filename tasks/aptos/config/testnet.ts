@@ -3,8 +3,8 @@ import {CHAIN_KEY, ChainId} from '@layerzerolabs/lz-sdk'
 import {applyArbitrumMultiplier, EVM_ADDERSS_SIZE, evmOFTAddresses, OFTConfig} from "./common"
 
 export const OFT_CONFIG: OFTConfig = {
-    oftType: "0x0bf52787bd28d6eef8533e52bc8be27bf0040ad81b8004a88f1c263eee6e1c06::oft::BTCbOFT",
-    address: "0x0bf52787bd28d6eef8533e52bc8be27bf0040ad81b8004a88f1c263eee6e1c06",
+    oftType: "0x32dc19ea987e86e024241843b90e6aa91d04d05f868d8ecb691fa5ce26a5b2b6::oft::BTCbOFT",
+    address: "0x32dc19ea987e86e024241843b90e6aa91d04d05f868d8ecb691fa5ce26a5b2b6",
     enableCustomAdapterParams: true,
     remoteOft: {},
     minDstGas: {

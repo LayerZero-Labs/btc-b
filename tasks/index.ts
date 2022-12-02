@@ -12,7 +12,7 @@ task("oftSend", "send tokens to another chain", require("./oftSend"))
 task("transferOwnershipToMultisig", "transfer the contract to the multisig", require("./transferOwnershipToMultisig"))
 
 // update config in btc-b/constants/wireUpConfig.json and then run the following command
-// npx hardhat wireAll --e testnet --networks goerli,fuji,bsc-testnet --non-evms aptos-testnet
+// npx hardhat wireAll --e testnet --s goerli,fuji --d goerli,fuji,aptos-testnet
 // or
 // npx hardhat wireAll --e testnet --networks goerli,fuji,bsc-testnet
 task("wireAll", "", require("./wireAll"))

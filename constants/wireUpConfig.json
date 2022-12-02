@@ -4,16 +4,16 @@
     "mainnet": "avalanche"
   },
   "proxyContractName": {
-    "testnet": "ProxyOFT",
+    "testnet": "BTCbProxyOFT",
     "mainnet": "BTCbProxyOFT"
   },
   "contractName": {
-    "testnet": "OFT",
+    "testnet": "BTCbOFT",
     "mainnet": "BTCbOFT"
   },
   "fuji": {
     "setDefault": true,
-    "defaultFeeBp": 1,
+    "defaultFeeBp": 5,
     "useCustomAdapterParams": true,
     "remoteNetworkConfigs": {
       "goerli":  {
@@ -33,20 +33,20 @@
     }
   },
   "goerli": {
-    "setDefault": false,
-    "defaultFeeBp": 1,
+    "setDefault": true,
+    "defaultFeeBp": 5,
     "useCustomAdapterParams": true,
     "remoteNetworkConfigs": {
       "fuji":  {
         "feeBpConfig": {
-          "feeBp": 5,
+          "feeBp": 0,
           "enabled": true
         },
         "minDstGasConfig": [100000, 160000]
       },
       "aptos-testnet":  {
         "feeBpConfig": {
-          "feeBp": 1,
+          "feeBp": 0,
           "enabled": true
         },
         "minDstGasConfig": [10000, 10000]

@@ -1,4 +1,4 @@
-const CHAIN_ID = require("@layerzerolabs/lz-sdk")
+const CHAIN_ID = require("@layerzerolabs/lz-sdk").CHAIN_ID
 
 module.exports = async function (taskArgs, hre) {
     let signers = await ethers.getSigners()
@@ -23,7 +23,6 @@ module.exports = async function (taskArgs, hre) {
     if(taskArgs.targetNetwork.includes("aptos")) {
         toAddress = taskArgs.aptosAddress
     }
-    toAddress = ethers.utils.defaultAbiCoder.encode(["address"], [toAddress])
 
     // get remote chain id
     const remoteChainId = CHAIN_ID[taskArgs.targetNetwork]
@@ -37,8 +36,9 @@ module.exports = async function (taskArgs, hre) {
     let fees = await localContractInstance.estimateSendFee(remoteChainId, toAddress, qty, false, adapterParams)
     console.log(`fees[0] (wei): ${fees[0]} / (eth): ${ethers.utils.formatEther(fees[0])}`)
 
+    //for testnet
     // const Token = new ethers.Contract(
-    //     "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
+    //     "0x3D1Bf401Fa74a8711fA3e09AB3B3ECA24CCF9218",
     //     new ethers.utils.Interface([
     //         "function approve(address spender, uint256 amount) external returns (bool)"
     //     ])
